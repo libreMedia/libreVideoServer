@@ -1,7 +1,7 @@
 # Importing all necessary libraries
 import cv2
 import os
-path = './public/'
+path = './thots/'
 fileName = "2021-05-18 01-42-16.mkv"
   
 # Read the video from specified path

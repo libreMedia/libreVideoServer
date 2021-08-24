@@ -7,7 +7,7 @@ import (
 
 func main() {
 
-	listDirContentRoot := listDirContent("./public")
+	listDirContentRoot := listDirContent("./thots")
 
 	app := fiber.New()
 
@@ -20,7 +20,7 @@ func main() {
 		return c.JSON(listDirContentRoot)
 	})
 
-	app.Static("/static", "./public")
+	app.Static("/static", "./thots")
 
 	app.Listen(":9000")
 }
