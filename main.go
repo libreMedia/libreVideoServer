@@ -7,7 +7,7 @@ import (
 
 func main() {
 
-	listDirContentRoot := listDirContent("./thots")
+	listDirContentRoot := listDirContent("./public")
 
 	app := fiber.New()
 
