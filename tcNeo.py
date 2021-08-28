@@ -2,8 +2,13 @@
 import cv2
 import sys
 import os
-userInput = sys.argv[1]
-print(userInput)
+from pathlib import Path
+from db import insertData
+# userInput = sys.argv[1]
+
+path = Path(os.getcwd())
+cwdParent = path.parent.absolute()
+
 def screenCap(pathy, filenamey):
     path = pathy
     fileName = filenamey
@@ -38,33 +43,12 @@ def screenCap(pathy, filenamey):
     
     # if not created then raise error
     except OSError:
-        print ('Error: Creating directory of data')
+        print (OSError)
     
     # Release all space and windows once done
     vidCap.release()
     cv2.destroyAllWindows()
 showsDir = os.path.join(os.getcwd(), 'showsa') 
-
-# def vidCheck(file):
-#     if file.endswith('.mkv'):
-#         return 1
-#     elif file.endswith('.mp4'):
-#         return 1
-#     elif file.endswith('.MP4'):
-#         return 1
-#     elif file.endswith('.avi'):
-#         return 1
-#     elif file.endswith('.webm'):
-#         return 1
-#     elif file.endswith('.ogg'):
-#         return 1
-#     elif file.endswith('.3gp'):
-#         return 1
-#     elif file.endswith('.mov'):
-#         return 1
-#     else:
-#         return 0
-
 
 def vidCheck(file):
     if file.endswith('.mkv') or file.endswith('.mp4') or file.endswith('.avi') or file.endswith('.webm') or file.endswith('.ogg') or file.endswith('.3gp') or file.endswith('.mov'):
@@ -77,10 +61,13 @@ def fileWalk(shoDir):
         for name in files:
             if(vidCheck(name)):
                 screenCap(root,name)
+                print(root)
+                cutName = name[:len(name)-4]
+                insertData(name, os.path.join(str(root), name), os.path.join(str(root),os.path.join('screen-shots', name)), f'/vids/{name}', f'/screen-shots/{name}' )
             print(os.path.join(root, name))
             print('this be a file!@')
         for name in dirs:
             print(os.path.join(root, name))
             print('this be a directoryyyyyyyyyyyyyy!@')
 
-fileWalk(userInput)
+fileWalk(cwdParent)
