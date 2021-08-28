@@ -8,7 +8,7 @@ import (
 func main() {
 
 	listDirContentRoot := listDirContent("../showsa")
-
+	readDb()
 	app := fiber.New()
 
 	app.Use(cors.New(cors.Config{

@@ -63,7 +63,7 @@ def fileWalk(shoDir):
                 screenCap(root,name)
                 print(root)
                 cutName = name[:len(name)-4]
-                insertData(name, os.path.join(str(root), name), os.path.join(str(root),os.path.join('screen-shots', name)), f'/vids/{name}', f'/screen-shots/{name}' )
+                insertData(name, os.path.join(str(root), name), os.path.join('screen-shots', name), f'/vids/{str(root)}/{name}', f'/screen-shots/{cutName}.jpg' )
             print(os.path.join(root, name))
             print('this be a file!@')
         for name in dirs:
