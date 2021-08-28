@@ -7,7 +7,7 @@ import (
 
 func main() {
 
-	listDirContentRoot := listDirContent("./public")
+	listDirContentRoot := listDirContent("../showsa")
 
 	app := fiber.New()
 
@@ -20,7 +20,9 @@ func main() {
 		return c.JSON(listDirContentRoot)
 	})
 
-	app.Static("/static", "./public")
+	//TODO make go to DB
+	app.Static("/vids", "../")
+	app.Static("screen-shots", "./screen-caps")
 
 	app.Listen(":9000")
 }
