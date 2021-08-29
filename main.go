@@ -13,7 +13,7 @@ func main() {
 	app := fiber.New()
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: "http://localhost:3000",
+		AllowOrigins: "*",
 		AllowHeaders: "Origin, Content-Type, Accept",
 	}))
 
@@ -23,7 +23,11 @@ func main() {
 	})
 
 	//TODO make go to DB
-	app.Static("/vids", "../")
+	app.Static("/vids", "../", fiber.Static{
+		Compress:  true,
+		ByteRange: true,
+		Browse:    true,
+	})
 	app.Static("screen-shots", "./screen-caps")
 
 	app.Listen(":9000")

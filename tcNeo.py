@@ -64,9 +64,9 @@ def fileWalk(shoDir):
                 print(root)
                 cutName = name[:len(name)-4]
                 vidFileLoc = os.path.normpath(os.path.join(str(root), name))
-                screenShotFileLoc = os.path.normpath(os.path.join('screen-shots', cutName+'.jpg'))
                 vidRoute =  os.path.normpath(f'{str(root)[3:]}/{name}').replace('\\', '/')
                 screenShotRoute = f'/screen-shots/{cutName}.jpg'
+                screenShotFileLoc = os.path.normpath(os.path.join('screen-shots', cutName+'.jpg'))
                 insertData(name,  vidFileLoc,screenShotFileLoc,vidRoute, screenShotRoute)
                 print(os.path.join(root, name))
                 print('this be a file!@')
