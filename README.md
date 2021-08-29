@@ -1,5 +1,5 @@
 # Libre Video
-![Libre video logo](https://i.ibb.co/pbC7mhp/libre-Vid-Trans.png)
+<img src="https://i.ibb.co/pbC7mhp/libre-Vid-Trans.png" width="50%" height="50%" />
 
 # Current Functionality
 
@@ -21,3 +21,9 @@ or just run the server with
 go run ./
 ```
 without modification, this will host all files in the given /public directory to localhost:9000/static/THE_VIDEO_FILE_NAME.VIDEO_EXTENSION
+without modification, this will host all files in the given /public directory to localhost:9000/static/THE_VIDEO_FILE_NAME.VIDEO_EXTENSION
+
+# Example Site
+This is the site running on my local file server serving video files.
+
+<img src="https://i.ibb.co/fVgK1hr/2021-08-29-07h23-43.png" width="100%" height="50%" />
