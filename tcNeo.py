@@ -5,6 +5,7 @@ import sys
 import os
 from pathlib import Path
 from db import insertData
+from convert import convertToMp4
 # userInput = sys.argv[1]
 
 path = Path(os.getcwd())
@@ -29,7 +30,6 @@ def screenCap(pathy, filenamey):
         # reading from frame
         ret, frame = vidCap.read()
         if path is None:
-            print(f'{path} bork bork bork bork bork borkbork bork bork'+fileName)
             return
         if ret:
             exName = str(fileName)
@@ -39,7 +39,7 @@ def screenCap(pathy, filenamey):
             print('Creating...' + cutName)
             # writing the extracted images
             font=cv2.FONT_HERSHEY_TRIPLEX
-            cv2.putText(frame, cutName, (30, 256), font,
+            cv2.putText(frame, 'Libre Video', (50, 50), font,
                         1, (245, 229, 52), 1, cv2.LINE_AA)
             cv2.imwrite(name, frame)
 
@@ -71,6 +71,7 @@ def vidCheck(file):
 def fileWalk(shoDir):
     for root, dirs, files in os.walk(shoDir, topdown=False):
         for name in files:
+
             if(vidCheck(name)):
                 screenCap(root, name)
                 print(root)
