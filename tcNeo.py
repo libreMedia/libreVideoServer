@@ -1,11 +1,9 @@
 # Importing all necessary libraries
 import cv2
-from PIL import Image, ImageDraw, ImageFont
 import sys
 import os
 from pathlib import Path
 from db import insertData
-from convert import convertToMp4
 # userInput = sys.argv[1]
 
 path = Path(os.getcwd())

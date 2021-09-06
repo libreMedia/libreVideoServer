@@ -21,7 +21,6 @@ or just run the server with
 go run ./
 ```
 without modification, this will host all files in the given /public directory to localhost:9000/static/THE_VIDEO_FILE_NAME.VIDEO_EXTENSION
-without modification, this will host all files in the given /public directory to localhost:9000/static/THE_VIDEO_FILE_NAME.VIDEO_EXTENSION
 
 # Example Site
 This is the site running on my local file server serving video files.
