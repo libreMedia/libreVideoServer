@@ -36,7 +36,7 @@ def screenCap(pathy, filenamey):
             name = f'./screen-caps/{cutName}.jpg'
             print('Creating...' + cutName)
             # writing the extracted images
-            font=cv2.FONT_HERSHEY_TRIPLEX
+            font = cv2.FONT_HERSHEY_TRIPLEX
             cv2.putText(frame, 'Libre Video', (50, 50), font,
                         1, (245, 229, 52), 1, cv2.LINE_AA)
             cv2.imwrite(name, frame)
@@ -66,24 +66,36 @@ def vidCheck(file):
         return 0
 
 
+def rubbishReject(fullString, substring):
+    if fullString.find(substring) != -1:
+        print("Back to the rubbish with you!")
+        # os.system(f"rm -r {fullString}")
+        return 1
+    else:
+        print("You may pass...")
+        return 0
+
 def fileWalk(shoDir):
     for root, dirs, files in os.walk(shoDir, topdown=False):
         for name in files:
-
-            if(vidCheck(name)):
-                screenCap(root, name)
-                print(root)
-                cutName = name[:len(name)-4]
-                vidFileLoc = os.path.normpath(os.path.join(str(root), name))
-                vidRoute = os.path.normpath(
-                    f'{str(root)[3:]}/{name}').replace('\\', '/')
-                screenShotRoute = f'/screen-shots/{cutName}.jpg'
-                screenShotFileLoc = os.path.normpath(
-                    os.path.join('screen-shots', cutName+'.jpg'))
-                insertData(name,  vidFileLoc, screenShotFileLoc,
-                           vidRoute, screenShotRoute)
-                print(os.path.join(root, name))
-                print('this be a file!@')
+            if(rubbishReject(root, ("$RECYCLE.BIN"))==0):
+                if(vidCheck(name)):
+                    screenCap(root, name)
+                    # print(root)
+                    cutName = name[:len(name)-4]
+                    vidFileLoc = os.path.normpath(os.path.join(str(root), name))
+                    vidRoute = os.path.normpath(
+                        f'{str(root)[3:]}/{name}').replace('\\', '/')
+                    screenShotRoute = f'/screen-shots/{cutName}.jpg'
+                    screenShotFileLoc = os.path.normpath(
+                        os.path.join('screen-shots', cutName+'.jpg'))
+                    insertData(name,  vidFileLoc, screenShotFileLoc,
+                            vidRoute, screenShotRoute)
+                    print(os.path.join(root, name))
+                    print('this be a file!@')
+            else:
+                print('Reeeejected!')
+                # return
         for name in dirs:
             print(os.path.join(root, name))
             print('this be a directoryyyyyyyyyyyyyy!@')
