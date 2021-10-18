@@ -16,4 +16,13 @@ Once the fileWalker has completed and the screenshots and database info has been
 This will start the Libre Video fileserver/API. This will expose a PORT on your computer and IP to the world (check your router/modem settings).
 
 # App
-Once the server has started, the app will be availbe in your webrowser by going to [http://localhost:3000/](http://localhost:3000/)
+Once the server has started, the app will be availbe in your webrowser will open or you can go to [http://localhost:3000/](http://localhost:3000/)
+
+![librea video screenshot](https://cloud.screenpresso.com/690Ld/2021-10-18_09h42_24.png)
+
+This will be a React app, and you are now free to enjoy your videos with complimentary rareHoss.
+
+# Video Player
+currently Libre Video plays videos with [React-Player](https://www.npmjs.com/package/react-player)
+
+![short demo video of libre video](https://cloud.screenpresso.com/7ZrNe/2021-10-18_10h20_10.gif)
