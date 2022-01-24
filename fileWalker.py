@@ -1,8 +1,8 @@
 # Importing all necessary libraries
 import cv2
 import subprocess
-import os
 import json
+import os
 from pathlib import Path
 from db import insertData, insertCodec
 # userInput = sys.argv[1]
